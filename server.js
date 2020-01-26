@@ -10,6 +10,9 @@ const authRoute = require('./routes/auth');
 // instance
 const app = express();
 
+// init middlewares
+app.use(express.json());
+
 // connecting to the Database
 connectDB();
 
