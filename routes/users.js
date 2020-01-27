@@ -7,8 +7,25 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-// @route: api/users | @access: Public
-// @desc:  users registration
+//
+
+// @route    GET /api/users
+// @desc     Get all users
+// @access   Public
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.find();
+
+    res.json({ users });
+    //
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// @route    /api/users
+// @desc     users registration
+// @access   Public
 router.post(
   '/',
 
