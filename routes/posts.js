@@ -263,4 +263,9 @@ router.delete('/:post_id/uncomment/:comment_id', auth, async (req, res) => {
   }
 });
 
+// TODO
+// @route    PUT /api/posts/:post_id/:comment_id
+// @desc     Update a comment
+// @access   Private
+
 module.exports = router;

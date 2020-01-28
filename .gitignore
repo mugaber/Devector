@@ -1,1 +1,6 @@
 /node_modules
+/client/node_modules
+/client/.pnp
+/client/coverage
+/client/build
+/client/.DS_Store
