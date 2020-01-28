@@ -23,14 +23,13 @@ router.get('/', async (req, res) => {
   }
 });
 
-// @route    /api/users
-// @desc     users registration
+// @route    POST /api/users
+// @desc     Register a user
 // @access   Public
 router.post(
   '/',
 
   [
-    // middleware validators
     check('name', 'Name is requried')
       .not()
       .isEmpty(),
