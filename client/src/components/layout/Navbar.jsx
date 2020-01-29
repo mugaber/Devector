@@ -19,12 +19,20 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       </h1>
       <ul>
         {!loading && isAuthenticated ? (
-          <li>
-            <a href='#!' onClick={() => handleClick()}>
-              <i className='fas fa-sign-out-alt'></i>{' '}
-              <span className='hide-sm'>Logout</span>
-            </a>
-          </li>
+          <>
+            <li>
+              <Link to='/dashboard'>
+                <i className='fa fa-user'></i>{' '}
+                <span className='hide-sm'>Dashboard</span>
+              </Link>
+            </li>
+            <li>
+              <Link href='#!' onClick={() => handleClick()}>
+                <i className='fa fa-sign-out-alt'></i>{' '}
+                <span className='hide-sm'>Logout</span>
+              </Link>
+            </li>
+          </>
         ) : (
           <>
             <li>

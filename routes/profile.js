@@ -12,14 +12,15 @@ const config = require('config');
 
 //
 
-// @route  GET api/profile/me
-// @desc   to get one User
-// @access Private
+// @route   GET api/profile/me
+// @desc    to get one User
+// @access  Private
 router.get('/me', auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.user.id
     }).populate('user', ['name', 'avater']);
+    // in the model the ref was - users - and should be user ?
 
     if (!profile) {
       return res.status(400).json({ msg: 'There is no profile for this user' });
@@ -133,20 +134,21 @@ router.post(
   }
 );
 
+// TODO delete this route at production
 // @route     GET api/profile/
 // @desc      Get all profiles
 // @access    Public
-router.get('/', async (req, res) => {
-  try {
-    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+// router.get('/', async (req, res) => {
+//   try {
+//     const profiles = await Profile.find().populate('user', ['name', 'avatar']);
 
-    res.status(200).json(profiles);
-    //
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send('Server Error');
-  }
-});
+//     res.status(200).json(profiles);
+//     //
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).send('Server Error');
+//   }
+// });
 
 // @route     GET api/profile/user/:user_id
 // @desc      Get profile by user ID

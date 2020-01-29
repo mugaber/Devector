@@ -9,7 +9,7 @@ import store from './redux/store';
 import setAuthToken from './utils/setAuthToken';
 import { loadUser } from './redux/auth/actions';
 
-import { Landing } from './components/layout/Landing';
+import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Navbar from './components/layout/Navbar';
 import Login from './components/auth/Login';
@@ -48,4 +48,5 @@ const App = () => {
     </Provider>
   );
 };
+
 export default App;
