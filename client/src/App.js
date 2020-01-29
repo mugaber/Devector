@@ -12,7 +12,7 @@ import { loadUser } from './redux/auth/actions';
 import Register from './components/auth/Register';
 import { Landing } from './components/layout/Landing';
 import { Navbar } from './components/layout/Navbar';
-import { Login } from './components/auth/Login';
+import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 
 //
