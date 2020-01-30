@@ -18,6 +18,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Link>
       </h1>
       <ul>
+        <li>
+          <Link to='/profiles'>Developers</Link>
+        </li>
         {!loading && isAuthenticated ? (
           <>
             <li>
@@ -28,16 +31,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
             </li>
             <li>
               <Link href='#!' onClick={() => handleClick()}>
-                <i className='fa fa-sign-out-alt'></i>{' '}
+                <i className='fa fa-sign-out'></i>{' '}
                 <span className='hide-sm'>Logout</span>
               </Link>
             </li>
           </>
         ) : (
           <>
-            <li>
-              <Link to='#!'>Developers</Link>
-            </li>
             <li>
               <Link to='/register'>Register</Link>
             </li>

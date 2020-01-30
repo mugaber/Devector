@@ -135,21 +135,20 @@ router.post(
   }
 );
 
-// TODO delete this route at production
 // @route     GET api/profile/
 // @desc      Get all profiles
 // @access    Public
-// router.get('/', async (req, res) => {
-//   try {
-//     const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+router.get('/', async (req, res) => {
+  try {
+    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
 
-//     res.status(200).json(profiles);
-//     //
-//   } catch (error) {
-//     console.error(error.message);
-//     res.status(500).send('Server Error');
-//   }
-// });
+    res.status(200).json(profiles);
+    //
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 // @route     GET api/profile/user/:user_id
 // @desc      Get profile by user ID
