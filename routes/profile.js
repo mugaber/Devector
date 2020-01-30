@@ -288,10 +288,10 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
   }
 });
 
-// @route   POST api/profile/education
+// @route   PUT api/profile/education
 // @desc    Add profile education
 // @access  Private
-router.post(
+router.put(
   '/education',
   [
     auth,
