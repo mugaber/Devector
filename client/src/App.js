@@ -17,10 +17,10 @@ import Alert from './components/layout/Alert';
 
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routes/PrivateRoute';
-import CreateProfile from './components/profile/CreateProfile';
-import EditProfile from './components/profile/EditProfile';
-import AddExperience from './components/profile/AddExperience';
-import AddEducation from './components/profile/AddEducation';
+import CreateProfile from './components/profile-forms/CreateProfile';
+import EditProfile from './components/profile-forms/EditProfile';
+import AddExperience from './components/profile-forms/AddExperience';
+import AddEducation from './components/profile-forms/AddEducation';
 
 //
 if (localStorage.token) {
