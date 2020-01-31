@@ -5,6 +5,8 @@ import { getPost } from '../../redux/post/actions';
 import Spinner from '../layout/Spinner';
 import PostItem from '../Posts/PostItem';
 import { Link } from 'react-router-dom';
+import CommentForm from './CommentForm';
+import Comment from './Comment';
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
@@ -19,6 +21,22 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
         Back To Posts
       </Link>
       <PostItem post={post} showActions={false} />
+      <CommentForm postId={post._id} />
+
+      {post.comments ? (
+        <div className='comments'>
+          <div class='bg-dark p my-1'>
+            <h3>Comments ...</h3>
+          </div>
+          {post.comments.map(comment => (
+            <Comment key={comment._id} comment={comment} postId={post._id} />
+          ))}
+        </div>
+      ) : (
+        <div class='bg-primary p my-1'>
+          <h3>No Comments yet...</h3>
+        </div>
+      )}
     </>
   );
 };

@@ -187,10 +187,10 @@ router.put('/unlike/:id', auth, async (req, res) => {
   }
 });
 
-// @route    PUT /api/posts/comment/:id
-// @desc     Add a comment
+// @route    POST /api/posts/comment/:id
+// @desc     Add a comment by post id
 // @access   Private
-router.put(
+router.post(
   '/comment/:id',
   [
     auth,
@@ -238,10 +238,10 @@ router.put(
   }
 );
 
-// @route    DELETE /api/posts/:post_id/uncomment/:comment_id
+// @route    DELETE /api/posts/:post_id/:comment_id
 // @desc     Delete a comment
 // @access   Private
-router.delete('/:post_id/uncomment/:comment_id', auth, async (req, res) => {
+router.delete('/:post_id/:comment_id', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.post_id);
 
