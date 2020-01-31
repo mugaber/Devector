@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../redux/auth/actions';
 
+//
+
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const handleClick = () => {
     logout();
@@ -23,6 +25,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </li>
         {!loading && isAuthenticated ? (
           <>
+            <li>
+              <Link to='/posts'>Posts</Link>
+            </li>
             <li>
               <Link to='/dashboard'>
                 <i className='fa fa-user'></i>{' '}
