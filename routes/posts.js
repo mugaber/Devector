@@ -139,7 +139,8 @@ router.put('/like/:id', auth, async (req, res) => {
       like => like.user.toString() === req.user.id
     );
 
-    if (liked) {
+    // was not updating the likes when it was the array
+    if (liked.length) {
       return res.status(401).json({ msg: 'Post already liked' });
     }
 

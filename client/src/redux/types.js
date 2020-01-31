@@ -20,5 +20,6 @@ export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 
 export const GET_POSTS = 'GET_POSTS';
 export const POSTS_ERROR = 'POSTS_ERROR';
+export const UPDATE_LIKES = 'UPDATE_LIKES';
 
 export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
