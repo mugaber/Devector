@@ -1,0 +1,1 @@
+- fix the redux bug
