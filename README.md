@@ -1,1 +1,1 @@
-// Small social network for developers
+# Small social network for developers
