@@ -1,6 +1,10 @@
 const express = require('express');
 const connectDB = require('./config/db');
 
+const compression= require('compression')
+const helmet = require('helmet')
+const cors = require('cors')
+
 // routes
 const profileRoute = require('./routes/profile');
 const usersRoute = require('./routes/users');
@@ -12,6 +16,9 @@ const app = express();
 
 // init middlewares
 app.use(express.json());
+app.use(compression())
+app.use(helmet())
+app.use(cors())
 
 // connecting to the Database
 connectDB();
