@@ -1,36 +1,35 @@
-const express = require('express');
-const connectDB = require('./config/db');
+const path = require('path')
+const express = require('express')
+const connectDB = require('./config/db')
 
-const compression= require('compression')
-const helmet = require('helmet')
 const cors = require('cors')
+const helmet = require('helmet')
+const compression = require('compression')
 
-// routes
-const profileRoute = require('./routes/profile');
-const usersRoute = require('./routes/users');
-const postsRoute = require('./routes/posts');
-const authRoute = require('./routes/auth');
-
-// instance
-const app = express();
+// Connect Database & Init app
+connectDB()
+const app = express()
 
 // init middlewares
-app.use(express.json());
-app.use(compression())
-app.use(helmet())
 app.use(cors())
+app.use(helmet())
+app.use(express.json())
+app.use(compression())
 
-// connecting to the Database
-connectDB();
+// Routes
+app.use('/api/auth', require('./routes/auth'))
+app.use('/api/users', require('./routes/users'))
+app.use('/api/posts', require('./routes/posts'))
+app.use('/api/profile', require('./routes/profile'))
 
-//
-app.get('/', (req, res) => res.send('API running'));
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'))
 
-// routes middlewares
-app.use('/api/profile', profileRoute);
-app.use('/api/users', usersRoute);
-app.use('/api/posts', postsRoute);
-app.use('/api/auth', authRoute);
+  app.get('*', (req, res) => {
+    res.sendfile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
 
-const PORT = process.env.port || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const PORT = process.env.port || 5000
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

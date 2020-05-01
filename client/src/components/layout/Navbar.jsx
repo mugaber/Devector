@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { logout } from '../../redux/auth/actions';
+import React from 'react'
+import { Link, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { logout } from '../../redux/auth/actions'
 
 //
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const handleClick = () => {
-    logout();
-    return <Redirect to='/' />;
-  };
+    logout()
+    return <Redirect to='/' />
+  }
 
   return (
     <nav className='navbar bg-dark'>
@@ -30,14 +30,12 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
             </li>
             <li>
               <Link to='/dashboard'>
-                <i className='fa fa-user'></i>{' '}
-                <span className='hide-sm'>Dashboard</span>
+                <i className='fa fa-user'></i> <span className='hide-sm'>Dashboard</span>
               </Link>
             </li>
             <li>
               <Link href='#!' onClick={() => handleClick()}>
-                <i className='fa fa-sign-out'></i>{' '}
-                <span className='hide-sm'>Logout</span>
+                <i className='fa fa-sign-out'></i> <span className='hide-sm'>Logout</span>
               </Link>
             </li>
           </>
@@ -53,16 +51,16 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         )}
       </ul>
     </nav>
-  );
-};
+  )
+}
 
 Navbar.protoTypes = {
   logout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
-};
+}
 
 const mapStateToProps = state => ({
   auth: state.auth
-});
+})
 
-export default connect(mapStateToProps, { logout })(Navbar);
+export default connect(mapStateToProps, { logout })(Navbar)
