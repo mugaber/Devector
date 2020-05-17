@@ -21,7 +21,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   const handleChange = e => setFormDate({ ...formData, [e.target.name]: e.target.value })
 
   const handleSubmit = async e => {
-    alert('hi')
     e.preventDefault()
 
     if (password !== password2) {

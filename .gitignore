@@ -1,7 +1,8 @@
+# API
 /node_modules
 /config/default.json
-/config/production.json
 
+# CLIENT
 /client/node_modules
 /client/.pnp
 /client/coverage

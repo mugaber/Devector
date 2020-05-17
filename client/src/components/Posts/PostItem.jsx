@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import Moment from 'react-moment';
-import { Link } from 'react-router-dom';
-import { addLike, removeLike, deletePost } from '../../redux/post/actions';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import Moment from 'react-moment'
+import { Link } from 'react-router-dom'
+import { addLike, removeLike, deletePost } from '../../redux/post/actions'
 
 //
 
@@ -33,12 +33,9 @@ const PostItem = ({
 
         {showActions && (
           <>
-            <button
-              onClick={() => addLike(_id)}
-              type='button'
-              className='btn btn-light'
-            >
-              <i className='fa fa-thumbs-up'></i> <span>{likes.length}</span>
+            <button onClick={() => addLike(_id)} type='button' className='btn btn-light'>
+              <i className='fa fa-thumbs-up'></i>{' '}
+              <span>{likes && likes.length > 0 && likes.length}</span>
             </button>
 
             <button
@@ -51,7 +48,7 @@ const PostItem = ({
 
             <Link to={`/posts/${_id}`} className='btn btn-primary'>
               Discussions{' '}
-              <span className='comment-count'>{comments.length}</span>
+              <span className='comment-count'>{comments && comments.length}</span>
             </Link>
 
             {!auth.loading && user === auth.user._id && (
@@ -67,12 +64,12 @@ const PostItem = ({
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
 PostItem.defaultProps = {
   showActions: true
-};
+}
 
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,
@@ -80,12 +77,10 @@ PostItem.propTypes = {
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
   deletePost: PropTypes.func.isRequired
-};
+}
 
 const mapStateToPorps = state => ({
   auth: state.auth
-});
+})
 
-export default connect(mapStateToPorps, { addLike, removeLike, deletePost })(
-  PostItem
-);
+export default connect(mapStateToPorps, { addLike, removeLike, deletePost })(PostItem)
